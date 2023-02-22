@@ -115,3 +115,15 @@ func TestParseRecord(t *testing.T) {
 		}
 	}
 }
+
+func FuzzParseTree(f *testing.F) {
+	f.Fuzz(func(t *testing.T, text []byte) {
+		ParseTree(text)
+	})
+}
+
+func FuzzParseRecord(f *testing.F) {
+	f.Fuzz(func(t *testing.T, msg []byte) {
+		ParseRecord(msg)
+	})
+}
